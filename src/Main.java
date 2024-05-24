@@ -1,24 +1,59 @@
 import model.Course;
 import model.Major;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-
-    List<Course> ComputerScienceCourses = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+    private static HashMap<String, String> users = new HashMap<>();
 
     public static void main(String[] args) {
 
 
-        Course JavaBeginner = new Course("Java Beginner", 3, "CSCI200");
-        Course JavaIntermediate = new Course("Java Intermediate", 3, "CSCI250");
-        Course JavaIntermediateLab = new Course("Java Intermediate Lab", 1, "CSCI251");
+        boolean running = true;
 
 
+        while (running) {
+
+            System.out.println("Welcome to the School Management System");
+            System.out.println("Please select an option:"
+            System.out.println("1. Signup");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
 
+            switch (choice) {
+                case 1:
+                    login();
+                    break;
+                case 2:
+                    signup();
+                    break;
+                case 3:
+                    running = false;
+                    break;
 
+                default:
+                    System.out.println("Invalid option");
+            }
+
+
+        }
+
+        scanner.close();
+    }
+
+
+    private static void login() {
 
     }
+
+    private static void signup() {
+    }
+
 }
