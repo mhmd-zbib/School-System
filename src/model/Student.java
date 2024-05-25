@@ -11,6 +11,8 @@ public class Student {
 
     private int id;
     private String name;
+    private String email;
+    private String password;
     private int grade;
     private Major major;
     private List<Course> courses;
@@ -18,19 +20,20 @@ public class Student {
     private int feesTotal;
 
 
-
-    /**
-     * @param id        Unique id
-     * @param name      set on create
-     * @param grade     set by calculating their courses
-     * @param feesPaid  calculated by what was paid
-     * @param feesTotal depending on courses took
-     */
-    public Student(int id, String name, int grade, int feesPaid, int feesTotal) {
-        this.id = id;
+    public Student(String name, String email, String password) {
         this.name = name;
-        this.grade = grade;
+        this.email = email;
+        this.password = password;
 
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
 

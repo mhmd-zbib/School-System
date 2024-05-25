@@ -1,59 +1,58 @@
 import model.Course;
 import model.Major;
+import model.Student;
+import usermanagement.StudentManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static HashMap<String, String> users = new HashMap<>();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final StudentManager studentManager = new StudentManager();
 
     public static void main(String[] args) {
-
-
         boolean running = true;
 
-
         while (running) {
-
-            System.out.println("Welcome to the School Management System");
-            System.out.println("Please select an option:"
-            System.out.println("1. Signup");
-            System.out.println("2. Login");
-            System.out.println("3. Exit");
-
+            System.out.println("Welcome to the School Management System\nPlease select an option:\n 1. Login\n 2. Signup\n 0. Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-
             switch (choice) {
                 case 1:
-                    login();
                     break;
                 case 2:
-                    signup();
+                    signupUser();
                     break;
-                case 3:
+                case 0:
                     running = false;
                     break;
-
                 default:
                     System.out.println("Invalid option");
             }
-
-
         }
-
         scanner.close();
     }
 
 
-    private static void login() {
+    public static void signupUser() {
+        System.out.println("Please enter your username: ");
+        String username = scanner.nextLine();
 
-    }
+        System.out.println("Please enter your email: ");
+        String email = scanner.nextLine();
 
-    private static void signup() {
+        System.out.println("Please enter your password: ");
+        String password = scanner.nextLine();
+
+        try {
+            studentManager.signup(username, email, password);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 }
