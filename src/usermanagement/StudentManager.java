@@ -27,7 +27,7 @@ public class StudentManager {
 
         StudentValidator.validateSignup(name, email, password);                 // calls the validator for validating the data
         String hashedPassword = EncryptionUtils.hashPassword(password);         // hash the password and return value
-        Student newStudent = new Student(name, email, hashedPassword, 5);          // initialize a new student class
+        Student newStudent = new Student(name, email, hashedPassword);          // initialize a new student class
         students.add(newStudent);                                               // add the class to the array
         System.out.println("New student added " + newStudent.getName());        // welcome the user
     }

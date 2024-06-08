@@ -4,12 +4,12 @@ import utils.IdUtils;
 
 public abstract class User {
 
-    protected final int id;
+    protected final String id;
     protected String name;
     protected String password;
     protected String email;
 
-    public User(String name, String email, String password, int id) {
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -49,7 +49,7 @@ public abstract class User {
         this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

@@ -1,7 +1,5 @@
 package model;
 
-import interfaces.Payable;
-
 import java.util.List;
 
 /**
@@ -9,25 +7,18 @@ import java.util.List;
  * student's payment info
  */
 
-public class Student extends User implements Payable {
+public class Student extends User {
     private int gpa;
     private Major major;
     private List<Course> courses;
-    private int feesPaid;
-    private int feesTotal;
 
-
-    public Student(String name, String email, String password, int id) {
-        super(name, email, password, id);
-     }
-
-    @Override
-    public void payFees(int amount) {
-        feesPaid += amount;
+    public Student(String name, String email, String password) {
+        super(name, email, password);
     }
 
-    @Override
-    public boolean checkPaymentStatus() {
-        return false;
+    public void setMajor(Major major) {
+        if (major == null) throw new IllegalArgumentException("Major cannot be null");
+        this.major = major;
+        major.addStudent(this);
     }
 }
