@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,10 +11,11 @@ import java.util.List;
 public class Student extends User {
     private int gpa;
     private Major major;
-    private List<Course> courses;
+    private final List<Course> courses;
 
     public Student(String name, String email, String password) {
         super(name, email, password);
+        this.courses = new ArrayList<>();
     }
 
     public void setMajor(Major major) {
@@ -21,4 +23,12 @@ public class Student extends User {
         this.major = major;
         major.addStudent(this);
     }
+
+    public void addCourse(Course course) {
+        if (course == null) throw new IllegalArgumentException("Course cannot be null");
+        if (!major.getCourses().contains(course)) throw new IllegalArgumentException("This course is not in the major");
+        courses.add(course);
+        course.addStudent(this);
+    }
+
 }
