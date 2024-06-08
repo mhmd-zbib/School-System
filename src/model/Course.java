@@ -11,10 +11,10 @@ public class Course {
     private final List<Major> majors;
     private final List<Student> students;
     private final List<Teacher> teachers;
-    private final double duration;
+    private double duration = 1.25;
 
 
-    public Course(String name, String courseId, double credits, double duration) {
+    public Course(String name, String courseId, double credits) {
         if (name == null) throw new IllegalArgumentException("Name cannot be null");
         if (courseId == null) throw new IllegalArgumentException("CourseId cannot be null");
         if (credits < 1) throw new IllegalArgumentException("Credits cannot be negative");
@@ -25,6 +25,10 @@ public class Course {
         this.majors = new ArrayList<>();
         this.students = new ArrayList<>();
         this.teachers = new ArrayList<>();
+    }
+
+    public Course(String name, String courseId, double credits, double duration) {
+        this(name, courseId, credits);
         this.duration = duration;
     }
 
@@ -40,5 +44,11 @@ public class Course {
         this.students.add(student);
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public double getDuration() {
+        return duration;
+    }
 }

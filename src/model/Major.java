@@ -32,7 +32,6 @@ public class Major {
         this.students.add(student);
     }
 
-
     public List<Course> getCourses() {
         return courses;
     }
