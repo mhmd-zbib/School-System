@@ -1,6 +1,7 @@
 import model.Course;
 import model.Major;
 import model.Student;
+import model.User;
 import usermanagement.StudentManager;
 
 import java.util.ArrayList;
@@ -41,10 +42,12 @@ public class Main {
         System.out.println("Please enter your username: ");
         String username = scanner.nextLine();
 
+
+
         System.out.println("Please enter your email: ");
         String email = scanner.nextLine();
 
-        System.out.println("Please enter your password: ");
+        System.out.println("Please enter your password  (eg: Passw0rd!): ");
         String password = scanner.nextLine();
 
         try {
